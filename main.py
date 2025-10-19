@@ -137,6 +137,8 @@ Examples:
         help='Verbose output with more details'
     )
 
+
+
     args = parser.parse_args()
 
     # Validate arguments
@@ -193,7 +195,10 @@ Examples:
             if not args.verbose:
                 print_predictions(predictions)
 
-        print(f"\n🎉 Stock prediction workflow completed!")
+        if not train and not predict:
+            print("❓ Please specify an operation: --train-only or --predict-only")
+
+        print(f"\n� Stock prediction workflow completed!")
 
         # Show disclaimer
         print("\n⚠️  DISCLAIMER:")
